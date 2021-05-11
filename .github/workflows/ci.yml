@@ -27,6 +27,8 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Display github run_number and run_id
       run: echo  ${{github.run_number}} ${{github.run_id}}
       
     - name: Build and Push Docker Image
