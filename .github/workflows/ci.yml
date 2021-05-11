@@ -28,13 +28,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Display github run_number and run_id
-      run: echo  ${{github.run_number}} ${{github.run_id}}
-      
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: docker.pkg.github.com/${{ github.repository }}/demo-app:1.0
+        image: docker.pkg.github.com/${{ github.repository }}/demo-app
+        tags: 1.0.${{ github.run_number }}
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
