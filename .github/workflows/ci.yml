@@ -27,9 +27,10 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-
+      run: echo  ${{github.run_number}} ${{github.run_id}}
+      
     - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: docker.pkg.github.com/${{ github.repository }}/demo-app:${{github.run_number}}
         registry: ghcr.io
