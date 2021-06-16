@@ -10,4 +10,4 @@
 
     docker tag java-app demo-app:java-1.0
     
-Tets comment through a PR , test again  1
+Tets comment through a PR , test again  
