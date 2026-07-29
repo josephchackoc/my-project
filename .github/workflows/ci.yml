@@ -37,15 +37,15 @@ jobs:
       run: |
         chmod +x gradlew
         echo "MY Parameter is $myParams"
-    - name: Build with Gradle
-      run: ./gradlew build
+    #- name: Build with Gradle
+    #  run: ./gradlew build
       
-    - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v5
-      with:
-        image: my-project/demo_app
-        tags: 1.0.${{ env.myParams }}.${{ github.run_number }}
-        registry: docker.pkg.github.com
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Build and Push Docker Image
+    #  uses: mr-smithers-excellent/docker-build-push@v5
+    #  with:
+    #    image: my-project/demo_app
+    #    tags: 1.0.${{ env.myParams }}.${{ github.run_number }}
+    #   registry: docker.pkg.github.com
+    #    username: ${{ github.repository_owner }}
+    #   password: ${{ secrets.GITHUB_TOKEN }}
          
