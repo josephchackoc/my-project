@@ -4,6 +4,16 @@
 name: Java CI with Gradle
 
 on:
+  workflow_dispatch:
+    inputs:
+      myParam:
+        default: 1
+        type: number
+  workflow_call:
+    inputs:
+      myParam:
+        default: 1
+        type: number
   push:
     branches: [ master ]
   pull_request:
@@ -23,7 +33,9 @@ jobs:
         java-version: 1.8
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: |
+        chmod +x gradlew
+        echo ${{ inputs.myParam }}
 
     - name: Build with Gradle
       run: ./gradlew build
