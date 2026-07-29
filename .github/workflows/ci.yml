@@ -23,6 +23,8 @@ jobs:
   build-java:
 
     runs-on: ubuntu-latest
+    env:
+      myParams: ${{ inputs.myParam }}  
     
     steps:
     - uses: actions/checkout@v2
@@ -35,8 +37,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: |
         chmod +x gradlew
-        echo ${{ inputs.myParam }}
-
+        echo "MY Parameter is $myParams"
     - name: Build with Gradle
       run: ./gradlew build
       
